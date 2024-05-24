@@ -35,10 +35,7 @@ class AuthProvider with ChangeNotifier {
       codeSent: (String verificationId, int? resendToken) {
         _verificationId = verificationId;
         setLoading(false);
-        Navigator.pushNamed(
-          context,
-          'otp_screen',arguments: verificationId
-        );
+        Navigator.pushNamed(context, 'otp_screen', arguments: verificationId);
       },
       codeAutoRetrievalTimeout: (String verificationId) {
         _verificationId = verificationId;
@@ -68,5 +65,11 @@ class AuthProvider with ChangeNotifier {
 
     _isLoading = false;
     notifyListeners();
+  }
+
+  void logout(context) {
+    _auth.signOut();
+    Navigator.pushNamedAndRemoveUntil(
+        context, 'phone_number_screen', (route) => false);
   }
 }

@@ -168,21 +168,8 @@ class _OtpScreenState extends State<OtpScreen> {
         userOtp: userOtp,
         verificationId: verificationId,
         onSuccess: () async {
-          snackBar(context, "Logged In successfully", 'red');
-          // bool dataExists = await ap.checkUserDataExists();
-          // await HelperFunctions.saveLoggedInUserId(ap.getUserId());
-          // String? uid = await HelperFunctions.getLoggedInUserId();
-          // devTools.log("User ID:");
-          // devTools.log(uid ?? "Not saved");
-          // if (dataExists) {
-          //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-          //     builder: (context) => const HomeScreen(),
-          //   ));
-          // } else {
-          //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-          //     builder: (context) => const ProfileSettingScreen(),
-          //   ));
-          // }
+          Navigator.pushNamedAndRemoveUntil(
+              context, "home_screen", (route) => false);
         },
       );
     } on FirebaseAuthException catch (e) {

@@ -2,14 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:saasaki_assignment/providers/authentication_provider.dart';
+import 'package:saasaki_assignment/screens/home_screen.dart';
 import 'package:saasaki_assignment/screens/otp_screen.dart';
 import 'package:saasaki_assignment/screens/phone_number_screen.dart';
 import 'package:saasaki_assignment/screens/splash_screen.dart';
 
-void main()async {WidgetsFlutterBinding.ensureInitialized();
- WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,13 +22,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Assignment',
         routes: {
-        // "home_screen": (context) => const HomeScreen(),
-        "phone_number_screen": (context) => const PhoneNumberScreen(),
-        "otp_screen": (context) => const OtpScreen(),
-      },
+          // "home_screen": (context) => const HomeScreen(),
+          "phone_number_screen": (context) => const PhoneNumberScreen(),
+          "otp_screen": (context) => const OtpScreen(),
+          "home_screen": (context) => HomeScreen(),
+        },
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+            primarySwatch: Colors.purple, canvasColor: Colors.purple.shade50),
         home: SplashScreen(),
       ),
     );
